@@ -1,6 +1,8 @@
 
 package com.example.nicolas.komplimente
 
+import android.content.Context
+import android.preference.PreferenceManager
 import com.github.kittinunf.fuel.Fuel
 import com.github.kittinunf.result.Result
 
@@ -39,6 +41,27 @@ object DBHandler {
                         }
                     }
                 }
+    }
+
+//    fun friends(username: String, password: String, token: String, done: (String?) -> Unit) {
+//        Fuel.get("$BASE/friends")
+//            .header("Token" to token)
+//            .responseString { _, response, result ->
+//                when (result) {
+//                    is Result.Success -> {
+//                        done(response.data.contentToString())
+//                    }
+//                    is Result.Failure -> {
+//                        println(response)
+//                        done(null)
+//                    }
+//                }
+//            }
+//    }
+
+    private fun token(context: Context): String? {
+        val token = PreferenceManager.getDefaultSharedPreferences(context).getString("token","")
+        return if (token == "") null else token
     }
 }
 
