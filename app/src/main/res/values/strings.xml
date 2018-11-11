@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Komplimente</string>
+    <string name="title_bekommen">Receive</string>
+    <string name="title_geben">Give</string>
+    <string name="title_profil">Profil</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="comli">Du bist wirklich was ganz ganz besonders!\n-dein Nicolas</string>
+
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="userNameDisplay">User Name</string>
+    <string name="job">Job:</string>
+    <string name="age">Age:</string>
+    <string name="language">Language:</string>
+    <string name="gender">Gender:</string>
+    <string name="favorite_comps">Favorites</string>
+    <string name="written_comps">Written</string>
+    <string name="friends">Friends</string>
+    <string name="profilePic">Profile Picture</string>
+    <string name="login">Login</string>
+    <string name="signup">Sign Up</string>
+
+</resources>
