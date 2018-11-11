@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Friends">
+
+    <ListView
+        android:id="@+id/myListViewFriends"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="#f7642e"
+        android:dividerHeight="2dp"
+        android:scrollbars="vertical"
+        android:listSelector="#f7642a"
+    />
+
+</FrameLayout>
