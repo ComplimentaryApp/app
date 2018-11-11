@@ -45,8 +45,8 @@ class Login : AppCompatActivity() {
         loginButton.setOnClickListener {
             if (signingUp) {
                 val chosenGender: RadioButton = gender.findViewById(gender.checkedRadioButtonId)
-                DBHandler.createUser(username.text.toString(), email.text.toString(),
-                        firstName.text.toString(), lastName.text.toString(), dob.text.toString(),
+                DBHandler.createUser(username.text.toString(),
+                        firstName.text.toString(), lastName.text.toString(),email.text.toString(), dob.text.toString(),
                         chosenGender.text.first()) { success ->
                     if (success) login()
                 }

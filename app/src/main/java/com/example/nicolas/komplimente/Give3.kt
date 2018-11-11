@@ -67,14 +67,16 @@ class Give3 : Fragment() {
     }
 
     private fun send(subject: String?, body: String?, anonymous: Boolean, positivity: Int) {
-        val snackbar = Snackbar
-            .make(
-                activity!!.findViewById(android.R.id.content),
-                "Your compliment is on the way, and will reach "+subject+" soon.",
-                Snackbar.LENGTH_LONG
-            )
+        DBHandler.sendCompliment(DBHandler.token(context!!)!!, subject!!, body!!) {
+            val snackbar = Snackbar
+                .make(
+                    activity!!.findViewById(android.R.id.content),
+                    "Your compliment is on the way, and will reach " + subject + " soon.",
+                    Snackbar.LENGTH_LONG
+                )
 
-        snackbar.show()
+            snackbar.show()
+        }
     }
 
 }// Required empty public constructor

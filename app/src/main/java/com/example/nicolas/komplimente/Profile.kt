@@ -10,6 +10,7 @@ import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.ImageView
 
 
 class Profile : Fragment() {
@@ -25,6 +26,13 @@ class Profile : Fragment() {
 
     private lateinit var frameLayout: FrameLayout
 
+    private lateinit var profil_pic: ImageView
+    private lateinit var user_name: TextView
+    private lateinit var age: TextView
+    private lateinit var gender: TextView
+    private lateinit var job: TextView
+    private lateinit var language: TextView
+
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -38,6 +46,14 @@ class Profile : Fragment() {
         friendsButton = view.findViewById(R.id.friends_nav_butt)
         frameLayout = view.findViewById(R.id.profile_frame_block)
 
+        profil_pic = view.findViewById(R.id.profilePic)
+        user_name = view.findViewById(R.id.userName)
+        age = view.findViewById(R.id.userAge)
+        gender = view.findViewById(R.id.userGender)
+        job = view.findViewById(R.id.userJob)
+        language = view.findViewById(R.id.userLanguage)
+
+
 
         favesButton.setOnClickListener { fragChange(favorite_comps) }
         writtenButton.setOnClickListener { fragChange(written_comps) }
@@ -48,6 +64,7 @@ class Profile : Fragment() {
         //mTextMessage = view.findViewById<View>(R.id.message) as TextView
         favesButton.callOnClick()
 
+        populate()
         return view
     }
 
@@ -56,5 +73,14 @@ class Profile : Fragment() {
         val fragmentTransaction = (activity as AppCompatActivity).supportFragmentManager.beginTransaction()
         fragmentTransaction.replace(frameLayout.id, fragment)
         fragmentTransaction.commit()
+    }
+
+    fun populate() {
+        profil_pic.setImageResource(R.drawable.pp)
+        user_name.text = "PaulaMaula"
+        age.text = "20"
+        gender.text = "Female"
+        job.text = "Student"
+        language.text = "English"
     }
 }

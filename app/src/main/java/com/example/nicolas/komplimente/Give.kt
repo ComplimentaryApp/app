@@ -20,17 +20,7 @@ import android.widget.ListView
 class Give : Fragment() {
 
     private lateinit var arrayAdapter: ArrayAdapter<*>
-    private val names = listOf(
-        "Paula",
-        "Matze",
-        "Charlie",
-        "Nicolas",
-        "Nils",
-        "Thomas",
-        "Dominic",
-        "Jan",
-        "Phillip"
-    )
+    private val names = Friends.friendsList
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -40,14 +30,14 @@ class Give : Fragment() {
 
         listView.onItemClickListener = AdapterView.OnItemClickListener { parent, view, position, id ->
             val bundle = Bundle()
-            bundle.putString("subject", parent.getItemAtPosition(position).toString())
+            bundle.putString("subject", parent.getItemAtPosition(position).toString().split('(', ')').get(1))
             val give2 = Give2()
             give2.arguments = bundle
             val fragmentManager = activity!!.supportFragmentManager
             fragmentManager.beginTransaction().replace(R.id.main_frame, give2).addToBackStack("give").commit()
         }
 
-        arrayAdapter = ArrayAdapter(activity!!, R.layout.simple_list_layout, names)
+        arrayAdapter = ArrayAdapter(activity!!, R.layout.simple_list_layout, names.map { "${it.first} ${it.last} (${it.id})" })
         listView.adapter = arrayAdapter
 
         editText.addTextChangedListener(object : TextWatcher {

@@ -46,6 +46,15 @@ class MainActivity : AppCompatActivity() {
         main_nav.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
         changeFragment(bekommen)
 
+        val token = DBHandler.token(this)
+        if (token != null) {
+            DBHandler.friends(token) { friends ->
+                Friends.friendsList.addAll(friends ?: listOf())
+            }
+            DBHandler.getCompliments(token) { compliments ->
+                Compliment.compliments.addAll(compliments ?: listOf())
+            }
+        }
     }
 
     fun getVisibleFragment(): Fragment? {

@@ -1,11 +1,14 @@
 package com.example.nicolas.komplimente
 
 
+import android.app.Activity
+import android.app.Application
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Adapter
 import android.widget.ArrayAdapter
 import android.widget.ListView
 
@@ -14,6 +17,10 @@ import android.widget.ListView
  * A simple [Fragment] subclass.
  */
 class Friends : Fragment() {
+
+    companion object {
+        var friendsList = ArrayList<Friend>()
+    }
 
     internal lateinit var listView: ListView
 
@@ -24,7 +31,8 @@ class Friends : Fragment() {
         listView = view.findViewById<View>(R.id.myListViewFriends) as ListView
 
         // define array values to show into our listView
-        val my_friend_list = arrayOf("Matze Hamacher", "Nic Neudeck", "Charlie Harding")
+        var my_friend_list = arrayListOf("Matze Hamacher", "Nic Neudeck", "Charlie Harding")
+        friendsList.forEach { my_friend_list.add("${it.first} ${it.last} (${it.id})") }
 
         //Define an Adapter
         // Define parameters for our adapter
@@ -37,7 +45,6 @@ class Friends : Fragment() {
 
         // Assign adapter to the listView object
         listView.adapter = adapter
-
 
         // Inflate the layout for this fragment
         return view
