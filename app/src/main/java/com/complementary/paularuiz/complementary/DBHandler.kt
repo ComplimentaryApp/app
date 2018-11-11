@@ -15,11 +15,7 @@ object DBHandler {
         Fuel.post("$BASE/users",
                 listOf("username" to username, "firstName" to firstName, "lastName" to lastName,
                         "email" to email, "birth" to birth, "gender" to gender))
-                .responseString { req, response, result ->
-                    println("HERE")
-                    println(req)
-                    println(result)
-                    println(response.statusCode)
+                .responseString { req, response, result ->q
             when (result) {
                 is Result.Success -> {
                     done(true)
