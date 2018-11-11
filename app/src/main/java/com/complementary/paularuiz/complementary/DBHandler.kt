@@ -15,7 +15,9 @@ object DBHandler {
         Fuel.post("$BASE/users",
                 listOf("username" to username, "firstName" to firstName, "lastName" to lastName,
                         "email" to email, "birth" to birth, "gender" to gender))
-                .responseString { _, response, result ->
+                .responseString { req, response, result ->
+                    println("HERE")
+                    println(req)
                     println(result)
                     println(response.statusCode)
             when (result) {
