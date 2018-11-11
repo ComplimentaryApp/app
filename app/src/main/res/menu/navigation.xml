@@ -4,16 +4,16 @@
     <item
             android:id="@+id/navigation_bekommen"
             android:icon="@drawable/receive"
-            android:title="@string/title_bekommen"/>
+            android:title="@string/title_receive"/>
 
     <item
             android:id="@+id/navigation_geben"
             android:icon="@drawable/send"
-            android:title="@string/title_geben"/>
+            android:title="@string/title_give"/>
 
     <item
             android:id="@+id/navigation_profil"
             android:icon="@drawable/profil"
-            android:title="@string/title_profil"/>
+            android:title="@string/title_profile"/>
 
 </menu>

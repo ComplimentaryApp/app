@@ -10,8 +10,8 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    var bekommen = Bekommen()
-    var geben = Geben()
+    var bekommen = Receive()
+    var geben = Give()
     var profil = Profile()
 
     var mood = 0

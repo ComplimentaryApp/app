@@ -13,8 +13,8 @@ import android.widget.RadioGroup
 class Login : AppCompatActivity() {
 
 
-    private lateinit var loginButt: Button
-    private lateinit var signupButt: Button
+    private lateinit var loginButton: Button
+    private lateinit var signupButton: Button
     private lateinit var username: EditText
     private lateinit var password: EditText
     private lateinit var email: EditText
@@ -32,7 +32,7 @@ class Login : AppCompatActivity() {
         if (prefs.contains("token")) return progress()
 
         setContentView(R.layout.activity_login)
-        loginButt = findViewById(R.id.loginButt)
+        loginButton = findViewById(R.id.loginButt)
         username = findViewById(R.id.usernameInput)
         password = findViewById(R.id.passwordInput)
         email = findViewById(R.id.emailInput)
@@ -40,9 +40,9 @@ class Login : AppCompatActivity() {
         lastName = findViewById(R.id.lastName)
         dob = findViewById(R.id.dobInput)
         gender = findViewById(R.id.genderRadio)
-        signupButt = findViewById(R.id.signupButt)
+        signupButton = findViewById(R.id.signupButt)
 
-        loginButt.setOnClickListener {
+        loginButton.setOnClickListener {
             if (signingUp) {
                 val chosenGender: RadioButton = gender.findViewById(gender.checkedRadioButtonId)
                 DBHandler.createUser(username.text.toString(), email.text.toString(),
@@ -55,15 +55,15 @@ class Login : AppCompatActivity() {
             }
         }
         val signupFields = listOf(email, firstName, lastName, dob, gender)
-        signupButt.setOnClickListener {
+        signupButton.setOnClickListener {
             if (signingUp) {
-                signupButt.text = getString(R.string.signup)
-                loginButt.text = getString(R.string.login)
+                signupButton.text = getString(R.string.signup)
+                loginButton.text = getString(R.string.login)
                 signupFields.forEach { it.visibility = View.GONE }
                 signingUp = false
             } else {
-                signupButt.text = getString(R.string.login)
-                loginButt.text = getString(R.string.signup)
+                signupButton.text = getString(R.string.login)
+                loginButton.text = getString(R.string.signup)
                 signupFields.forEach { it.visibility = View.VISIBLE }
 
                 signingUp = true
